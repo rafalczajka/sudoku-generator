@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from '$lib/components/Button.svelte';
 	import type { Difficulty } from '$lib/types/sudoku';
 
 	const levels: { value: Difficulty; label: string }[] = [
@@ -27,9 +28,9 @@
 				<option value={option.value}>{option.label}</option>
 			{/each}
 		</select>
-		<button onclick={onGenerate} disabled={loading}>
+		<Button variant="primary" onclick={onGenerate} disabled={loading}>
 			{loading ? 'Generating…' : 'Generate'}
-		</button>
+		</Button>
 	</div>
 </div>
 
@@ -51,8 +52,7 @@
 		gap: 10px;
 	}
 
-	select,
-	button {
+	select {
 		min-height: 46px;
 		border-radius: 6px;
 	}
@@ -66,28 +66,11 @@
 		cursor: pointer;
 	}
 
-	button {
-		width: 160px;
-		border: 0;
-		padding: 0 18px;
-		color: #ffffff;
-		background: #191919;
-		font-weight: 700;
-		cursor: pointer;
-		transition: background 120ms ease;
-	}
-
-	button:hover:not(:disabled) {
-		background: #3b3b3b;
-	}
-
-	button:focus-visible,
 	select:focus-visible {
 		outline: 2px solid #777777;
 		outline-offset: 2px;
 	}
 
-	button:disabled,
 	select:disabled {
 		cursor: wait;
 		opacity: 0.65;
@@ -96,10 +79,6 @@
 	@media (max-width: 480px) {
 		.actions {
 			grid-template-columns: 1fr;
-		}
-
-		button {
-			width: 100%;
 		}
 	}
 </style>

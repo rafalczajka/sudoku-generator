@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fetchSudoku } from '$lib/api/sudoku';
+	import Button from '$lib/components/Button.svelte';
 	import SudokuBoard from '$lib/components/SudokuBoard.svelte';
 	import SudokuControls from '$lib/components/SudokuControls.svelte';
 	import type { Difficulty, Sudoku } from '$lib/types/sudoku';
@@ -44,9 +45,9 @@
 		{#if sudoku && !error}
 			<div class="footer">
 				<p><strong>{sudoku.stats.level}</strong> · {sudoku.stats.clues} clues</p>
-				<button onclick={() => (showSolution = !showSolution)}>
+				<Button onclick={() => (showSolution = !showSolution)}>
 					{showSolution ? 'Hide solution' : 'Show solution'}
-				</button>
+				</Button>
 			</div>
 		{:else if !error}
 			<div class="footer-placeholder" aria-hidden="true"></div>
@@ -125,26 +126,6 @@
 
 	.footer strong {
 		color: #191919;
-	}
-
-	.footer button {
-		min-height: 46px;
-		border: 1px solid #cccccc;
-		border-radius: 6px;
-		padding: 0 18px;
-		color: #191919;
-		background: transparent;
-		font-weight: 700;
-		cursor: pointer;
-	}
-
-	.footer button:hover {
-		background: #f4f4f4;
-	}
-
-	.footer button:focus-visible {
-		outline: 2px solid #777777;
-		outline-offset: 2px;
 	}
 
 	.message {
