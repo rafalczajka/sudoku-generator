@@ -1,6 +1,6 @@
 # Sudoku Generator
 
-A Python Sudoku generator with a command-line interface and a Flask API.
+A Sudoku generator with a Python CLI, Flask API, and SvelteKit web client.
 
 ## Setup
 
@@ -10,6 +10,17 @@ python -m pip install -r requirements.txt
 ```
 
 Activate the virtual environment before running the project.
+
+## Development with Docker
+
+Run the API and web client together:
+
+```bash
+docker compose up --build
+```
+
+The web client is available at `http://localhost:5173` and the API at
+`http://localhost:5000`.
 
 ## CLI
 
@@ -44,3 +55,14 @@ Health check:
 ```http
 GET /api/health
 ```
+
+## Web
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+The client is available at `http://localhost:5173`. During development,
+requests to `/api` are proxied to the Flask API at `http://localhost:5000`.
