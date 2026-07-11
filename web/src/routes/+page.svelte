@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	import { warmUpApi } from '$lib/api/health';
 	import { fetchSudoku } from '$lib/api/sudoku';
 	import Button from '$lib/components/Button.svelte';
 	import SudokuBoard from '$lib/components/SudokuBoard.svelte';
@@ -10,6 +13,8 @@
 	let showSolution = $state(false);
 	let loading = $state(false);
 	let error = $state('');
+
+	onMount(warmUpApi);
 
 	async function generateSudoku() {
 		loading = true;
