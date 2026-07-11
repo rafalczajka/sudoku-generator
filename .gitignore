@@ -39,3 +39,6 @@ vite.config.ts.timestamp-*
 # OS files
 .DS_Store
 Thumbs.db
+
+# Project specific
+azure-credentials.json
