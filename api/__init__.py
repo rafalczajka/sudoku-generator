@@ -11,6 +11,11 @@ def create_app() -> Flask:
     """Create and configure the Flask application."""
     app = Flask(__name__)
 
+    @app.after_request
+    def add_cors_headers(response):
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        return response
+
     @app.get('/api/health')
     def health():
         return {'status': 'ok'}
