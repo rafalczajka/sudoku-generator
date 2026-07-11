@@ -1,0 +1,53 @@
+name: Deploy API
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - api/**
+      - generator/**
+      - app.py
+      - requirements.txt
+      - .github/workflows/deploy-api.yml
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Prepare deployment package
+        run: |
+          mkdir deploy
+          cp -R api generator app.py requirements.txt deploy/
+          python -m pip install \
+            --requirement requirements.txt \
+            --target deploy/.python_packages/lib/site-packages
+
+      - name: Log in to Azure
+        uses: azure/login@v3
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ vars.AZURE_WEBAPP_NAME }}
+          package: deploy
