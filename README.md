@@ -1,6 +1,6 @@
 # Sudoku Generator
 
-A Sudoku generator with a Python CLI, Flask API, and SvelteKit web client.
+An application for generating Sudoku puzzles at different difficulty levels.
 
 ## Setup
 
