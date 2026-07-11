@@ -18,3 +18,24 @@ dist/
 
 # Local environment variables
 .env
+.env.*
+!.env.example
+!.env.test
+
+# Node.js
+node_modules/
+
+# SvelteKit and deployment output
+.svelte-kit/
+.output/
+.vercel/
+.netlify/
+.wrangler/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# OS files
+.DS_Store
+Thumbs.db
