@@ -20,7 +20,9 @@
 		{/each}
 	</div>
 {:else}
-	<div class="empty"></div>
+	<div class="empty">
+		<p>The first puzzle may take a little longer while the server wakes up.</p>
+	</div>
 {/if}
 
 <style>
@@ -70,9 +72,20 @@
 	}
 
 	.empty {
+		display: grid;
+		place-items: center;
+		padding: 32px;
 		border: 1px dashed #cccccc;
 		color: #777777;
 		background: #fafafa;
+		text-align: center;
+	}
+
+	.empty p {
+		max-width: 280px;
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.5;
 	}
 
 	@media (max-width: 480px) {
