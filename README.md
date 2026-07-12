@@ -1,6 +1,6 @@
 # Sudoku Generator
 
-An application for generating Sudoku puzzles at different difficulty levels.
+A Sudoku generator with multiple difficulty levels.
 
 ## Setup
 
