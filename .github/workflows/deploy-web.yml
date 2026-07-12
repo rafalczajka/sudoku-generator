@@ -47,7 +47,6 @@ jobs:
       - name: Build static site
         working-directory: web
         env:
-          BASE_PATH: /${{ github.event.repository.name }}
           PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
         run: npm run build
 
