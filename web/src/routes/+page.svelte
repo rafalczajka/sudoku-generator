@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	import { warmUpApi } from '$lib/api/health';
@@ -57,6 +58,10 @@
 		{:else if !error}
 			<div class="footer-placeholder" aria-hidden="true"></div>
 		{/if}
+
+		<a class="download" href={asset('/printable-grid-6.pdf')} download>
+			Download printable grids (PDF)
+		</a>
 	</section>
 </main>
 
@@ -140,6 +145,24 @@
 		color: #8c281c;
 		background: #fbe8e2;
 		font-size: 0.9rem;
+	}
+
+	.download {
+		display: block;
+		width: fit-content;
+		margin: 12px auto 0;
+		color: #666666;
+		font-size: 0.85rem;
+		text-underline-offset: 3px;
+	}
+
+	.download:hover {
+		color: #191919;
+	}
+
+	.download:focus-visible {
+		outline: 2px solid #777777;
+		outline-offset: 3px;
 	}
 
 	@media (max-width: 480px) {
