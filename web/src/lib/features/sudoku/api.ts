@@ -1,6 +1,6 @@
-import type { Difficulty, Sudoku } from '$lib/types/sudoku';
+import { apiEndpoint } from '$lib/api/client';
 
-import { apiEndpoint } from './client';
+import type { Difficulty, Sudoku } from './types';
 
 export async function fetchSudoku(level: Difficulty): Promise<Sudoku> {
 	const response = await fetch(apiEndpoint(`/api/sudoku?level=${level}`));

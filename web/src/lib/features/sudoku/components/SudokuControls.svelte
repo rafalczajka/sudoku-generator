@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import type { Difficulty } from '$lib/types/sudoku';
+
+	import type { Difficulty } from '../types';
 
 	const levels: { value: Difficulty; label: string }[] = [
 		{ value: 'easy', label: 'Easy' },

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Sudoku } from '$lib/types/sudoku';
+	import type { Sudoku } from '../types';
 
 	let { sudoku, showSolution }: { sudoku: Sudoku | null; showSolution: boolean } = $props();
 </script>
