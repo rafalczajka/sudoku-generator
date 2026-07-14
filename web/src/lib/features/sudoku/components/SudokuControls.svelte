@@ -37,44 +37,26 @@
 
 <style>
 	.controls {
-		margin-bottom: 20px;
+		margin-bottom: var(--space-5);
 	}
 
 	label {
 		display: block;
-		margin-bottom: 9px;
-		font-size: 0.8rem;
-		font-weight: 700;
+		margin-bottom: var(--space-2);
+		font-size: var(--font-size-small);
+		font-weight: var(--font-weight-bold);
 	}
 
 	.actions {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 10px;
-	}
-
-	select {
-		min-height: 46px;
-		border-radius: 6px;
+		gap: var(--space-3);
 	}
 
 	select {
 		width: 100%;
-		padding: 0 38px 0 14px;
-		border: 1px solid #cccccc;
-		color: #191919;
-		background: #ffffff;
-		cursor: pointer;
-	}
-
-	select:focus-visible {
-		outline: 2px solid #777777;
-		outline-offset: 2px;
-	}
-
-	select:disabled {
-		cursor: wait;
-		opacity: 0.65;
+		padding: 0 var(--space-10) 0 var(--space-4);
+		background: var(--color-surface);
 	}
 
 	@media (max-width: 480px) {

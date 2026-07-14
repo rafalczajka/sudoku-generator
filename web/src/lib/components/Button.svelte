@@ -20,40 +20,25 @@
 
 <style>
 	button {
-		min-height: 46px;
-		border: 1px solid #cccccc;
-		border-radius: 6px;
-		padding: 0 18px;
-		color: #191919;
+		padding: 0 var(--space-4);
 		background: transparent;
-		font-weight: 700;
-		cursor: pointer;
-		transition: background 120ms ease;
+		font-weight: var(--font-weight-bold);
+		transition: background var(--transition-fast);
 	}
 
 	button:hover:not(:disabled) {
-		background: #f4f4f4;
-	}
-
-	button:focus-visible {
-		outline: 2px solid #777777;
-		outline-offset: 2px;
-	}
-
-	button:disabled {
-		cursor: wait;
-		opacity: 0.65;
+		background: var(--color-hover);
 	}
 
 	.primary {
 		width: 160px;
-		border-color: #191919;
-		color: #ffffff;
-		background: #191919;
+		border-color: var(--color-primary);
+		color: var(--color-on-primary);
+		background: var(--color-primary);
 	}
 
 	.primary:hover:not(:disabled) {
-		background: #3b3b3b;
+		background: var(--color-primary-hover);
 	}
 
 	@media (max-width: 480px) {

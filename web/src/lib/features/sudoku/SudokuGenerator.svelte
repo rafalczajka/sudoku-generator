@@ -57,32 +57,33 @@
 
 <style>
 	main {
-		width: min(480px, calc(100% - 32px));
+		width: min(var(--content-width), calc(100% - var(--space-8)));
 		margin: 0 auto;
-		padding: 32px 0;
+		padding: var(--space-8) 0;
 	}
 
 	h1 {
-		margin: 0 0 20px;
-		font-size: 2rem;
-		font-weight: 650;
+		margin: 0 0 var(--space-5);
+		font-size: var(--font-size-title);
+		font-weight: var(--font-weight-bold);
+		line-height: var(--line-height-title);
 		letter-spacing: -0.02em;
 		text-align: center;
 	}
 
 	.message {
 		margin: 0;
-		padding: 16px;
-		border-radius: 6px;
-		color: #8c281c;
-		background: #fbe8e2;
-		font-size: 0.9rem;
+		padding: var(--space-4);
+		border-radius: var(--radius);
+		color: var(--color-error);
+		background: var(--color-error-surface);
+		font-size: var(--font-size-small);
 	}
 
 	@media (max-width: 480px) {
 		main {
-			width: calc(100% - 24px);
-			padding: 24px 0;
+			width: calc(100% - var(--space-6));
+			padding: var(--space-6) 0;
 		}
 	}
 </style>

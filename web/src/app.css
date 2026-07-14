@@ -1,3 +1,43 @@
+:root {
+	--color-text: #191919;
+	--color-text-muted: #666666;
+	--color-surface: #ffffff;
+	--color-surface-subtle: #fafafa;
+	--color-border: #8a8a8a;
+	--color-border-subtle: #cccccc;
+	--color-hover: #f4f4f4;
+	--color-primary: #191919;
+	--color-primary-hover: #3b3b3b;
+	--color-on-primary: #ffffff;
+	--color-accent: #2563eb;
+	--color-error: #8c281c;
+	--color-error-surface: #fbe8e2;
+
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+
+	--font-size-base: 1rem;
+	--font-size-small: 0.875rem;
+	--font-size-title: 2rem;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+	--line-height-base: 1.5;
+	--line-height-title: 1.2;
+
+	--radius: 6px;
+	--control-height: 48px;
+	--content-width: 480px;
+	--focus-width: 2px;
+	--focus-offset: 2px;
+	--transition-fast: 120ms ease;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -11,16 +51,36 @@ html {
 		BlinkMacSystemFont,
 		'Segoe UI',
 		sans-serif;
-	color: #191919;
-	background: #ffffff;
+	color: var(--color-text);
+	background: var(--color-surface);
 }
 
 body {
 	margin: 0;
 	min-width: 320px;
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
 }
 
 button,
 select {
 	font: inherit;
+}
+
+:where(button, select) {
+	min-height: var(--control-height);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	color: var(--color-text);
+	cursor: pointer;
+}
+
+:where(button, select):disabled {
+	cursor: wait;
+	opacity: 0.65;
+}
+
+:where(button, select, a):focus-visible {
+	outline: var(--focus-width) solid var(--color-accent);
+	outline-offset: var(--focus-offset);
 }

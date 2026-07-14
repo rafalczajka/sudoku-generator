@@ -33,44 +33,46 @@
 
 <style>
 	footer {
-		padding-top: 12px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding-top: var(--space-3);
 	}
 
 	.puzzle-details {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 16px;
-		margin-bottom: 12px;
+		width: 100%;
+		gap: var(--space-4);
+		margin-bottom: var(--space-3);
 	}
 
 	.puzzle-details p {
 		margin: 0;
-		color: #666666;
-		font-size: 0.9rem;
+		color: var(--color-text-muted);
+		font-size: var(--font-size-small);
 		text-transform: capitalize;
 	}
 
 	.puzzle-details strong {
-		color: #191919;
+		color: var(--color-text);
 	}
 
 	.download {
-		display: block;
+		display: inline-flex;
+		align-items: center;
 		width: fit-content;
+		min-height: var(--space-8);
 		margin: 0 auto;
-		color: #666666;
-		font-size: 0.85rem;
+		padding: 0 var(--space-2);
+		color: var(--color-text-muted);
+		font-size: var(--font-size-small);
 		text-underline-offset: 3px;
 	}
 
 	.download:hover {
-		color: #191919;
-	}
-
-	.download:focus-visible {
-		outline: 2px solid #777777;
-		outline-offset: 3px;
+		color: var(--color-text);
 	}
 
 	@media (max-width: 480px) {
