@@ -48,20 +48,20 @@
 			<SudokuBoard {sudoku} {showSolution} />
 		{/if}
 
-		{#if sudoku && !error}
-			<div class="footer">
-				<p><strong>{sudoku.stats.level}</strong> · {sudoku.stats.clues} clues</p>
-				<Button onclick={() => (showSolution = !showSolution)}>
-					{showSolution ? 'Hide solution' : 'Show solution'}
-				</Button>
-			</div>
-		{:else if !error}
-			<div class="footer-placeholder" aria-hidden="true"></div>
-		{/if}
+		<footer>
+			{#if sudoku && !error}
+				<div class="puzzle-details">
+					<p><strong>{sudoku.stats.level}</strong> · {sudoku.stats.clues} clues</p>
+					<Button onclick={() => (showSolution = !showSolution)}>
+						{showSolution ? 'Hide solution' : 'Show solution'}
+					</Button>
+				</div>
+			{/if}
 
-		<a class="download" href={asset('/printable-grid-6.pdf')} download>
-			Download printable grids (PDF)
-		</a>
+			<a class="download" href={asset('/printable-grid-6.pdf')} download>
+				Download printable grids (PDF)
+			</a>
+		</footer>
 	</section>
 </main>
 
@@ -94,16 +94,9 @@
 	}
 
 	main {
-		display: flex;
-		align-items: center;
 		width: min(480px, calc(100% - 32px));
-		min-height: 100vh;
 		margin: 0 auto;
-		padding: 20px 0;
-	}
-
-	.workspace {
-		width: 100%;
+		padding: 32px 0;
 	}
 
 	h1 {
@@ -114,27 +107,26 @@
 		text-align: center;
 	}
 
-	.footer,
-	.footer-placeholder {
-		min-height: 60px;
+	footer {
+		padding-top: 12px;
 	}
 
-	.footer {
+	.puzzle-details {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 16px;
-		padding-top: 14px;
+		margin-bottom: 12px;
 	}
 
-	.footer p {
+	.puzzle-details p {
 		margin: 0;
 		color: #666666;
 		font-size: 0.9rem;
 		text-transform: capitalize;
 	}
 
-	.footer strong {
+	.puzzle-details strong {
 		color: #191919;
 	}
 
@@ -150,7 +142,7 @@
 	.download {
 		display: block;
 		width: fit-content;
-		margin: 12px auto 0;
+		margin: 0 auto;
 		color: #666666;
 		font-size: 0.85rem;
 		text-underline-offset: 3px;
@@ -171,12 +163,7 @@
 			padding: 24px 0;
 		}
 
-		.footer,
-		.footer-placeholder {
-			min-height: 93px;
-		}
-
-		.footer {
+		.puzzle-details {
 			align-items: stretch;
 			flex-direction: column;
 		}
