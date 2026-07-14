@@ -34,7 +34,8 @@
 
 	.board {
 		display: grid;
-		grid-template-columns: repeat(9, 1fr);
+		grid-template-columns: repeat(9, minmax(0, 1fr));
+		grid-template-rows: repeat(9, minmax(0, 1fr));
 		border: 2px solid var(--color-text);
 		background: var(--color-text);
 	}
