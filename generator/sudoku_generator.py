@@ -351,20 +351,3 @@ def print_board(board: Board) -> None:
             parts.append(str(value) if value else '.')
 
         print(' '.join(parts))
-
-
-def _legacy_main() -> None:
-    puzzle, solution, stats = generate_sudoku(
-        level='hard',
-        rotational_symmetry=True,
-        seed=None,
-    )
-
-    print('Sudoku:')
-    print_board(puzzle)
-
-    print('\nStatystyki:')
-    print(stats)
-
-    print('\nRozwiązanie:')
-    print_board(solution)
