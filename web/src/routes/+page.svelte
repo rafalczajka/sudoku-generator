@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SudokuGenerator from '$lib/features/sudoku/SudokuGenerator.svelte';
+	import SudokuGenerator from '$lib/sudoku/SudokuGenerator.svelte';
 </script>
 
 <svelte:head>
