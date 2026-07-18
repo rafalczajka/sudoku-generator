@@ -1,6 +1,6 @@
 export type Difficulty = 'easy' | 'medium' | 'hard' | 'expert';
 
-export type Board = number[][];
+type Board = number[][];
 
 export type SudokuStats = {
 	level: Difficulty;

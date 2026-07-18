@@ -37,7 +37,7 @@
 </script>
 
 <main>
-	<section class="workspace" aria-label="Sudoku generator">
+	<section aria-label="Sudoku generator">
 		<h1>Sudoku Generator</h1>
 		<SudokuControls bind:level {loading} onGenerate={generateSudoku} />
 
