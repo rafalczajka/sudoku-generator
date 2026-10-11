@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
 
-	import Button from '$lib/components/Button.svelte';
+	import Button from '#lib/components/Button.svelte';
 
 	import type { SudokuStats } from '../types';
 
@@ -26,7 +26,7 @@
 		</div>
 	{/if}
 
-	<a class="download" href={asset('/printable-grid-6.pdf')} download>
+	<a class="download" href={asset('printable-grid-6.pdf')} download>
 		Download printable grids (PDF)
 	</a>
 </footer>

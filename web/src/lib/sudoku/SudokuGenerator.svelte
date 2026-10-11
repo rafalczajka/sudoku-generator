@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { warmUpApi } from '$lib/api/health';
+	import { warmUpApi } from '../api/health';
 
 	import { fetchSudoku } from './api';
 	import SudokuBoard from './components/SudokuBoard.svelte';

@@ -1,6 +1,6 @@
-import { env } from '$env/dynamic/public';
+import { PUBLIC_API_URL } from '$app/env/public';
 
 export function apiEndpoint(path: string): string {
-	const apiUrl = (env.PUBLIC_API_URL ?? '').replace(/\/$/, '');
+	const apiUrl = PUBLIC_API_URL.replace(/\/$/, '');
 	return `${apiUrl}${path}`;
 }

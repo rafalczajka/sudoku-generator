@@ -1,4 +1,4 @@
-import { apiEndpoint } from '$lib/api/client';
+import { apiEndpoint } from '../api/client';
 
 import type { Difficulty, Sudoku } from './types';
 
