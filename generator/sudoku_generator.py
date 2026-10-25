@@ -1,5 +1,4 @@
 import random
-from typing import Optional
 
 Board = list[list[int]]
 
@@ -15,6 +14,7 @@ TARGET_CLUES = {
 
 def candidates(board: Board, row: int, col: int) -> list[int]:
     """Return the values that can be placed in the given cell."""
+
     if board[row][col] != 0:
         return []
 
@@ -33,14 +33,13 @@ def candidates(board: Board, row: int, col: int) -> list[int]:
     return list(DIGITS - used)
 
 
-def find_mrv_cell(
-    board: Board,
-) -> Optional[tuple[int, int, list[int]]]:
+def find_mrv_cell(board: Board) -> tuple[int, int, list[int]] | None:
     """
     Find the empty cell with the fewest candidate values.
 
     MRV = Minimum Remaining Values.
     """
+
     best_cell = None
     best_values = None
 
@@ -71,6 +70,7 @@ def find_mrv_cell(
 
 def fill_complete_grid(board: Board) -> bool:
     """Generate a complete valid grid in random order."""
+
     cell = find_mrv_cell(board)
 
     if cell is None:
@@ -96,6 +96,7 @@ def count_solutions(board: Board, limit: int = 2) -> int:
     The generator only needs to distinguish between three cases:
     no solutions, one solution, and at least two solutions.
     """
+
     total = 0
 
     def search() -> None:
@@ -131,6 +132,7 @@ def analyze_difficulty(board: Board) -> dict:
     The result depends on this solver's behavior, so the thresholds should
     be treated as a starting point for further calibration.
     """
+
     work = [row[:] for row in board]
 
     stats = {
@@ -204,6 +206,7 @@ def make_removal_groups(
     With rotational symmetry, cells (r, c) and (8-r, 8-c)
     are removed together.
     """
+
     if not rotational_symmetry:
         groups = [
             [(row, col)]
@@ -240,6 +243,7 @@ def make_candidate(
     rotational_symmetry: bool = True,
 ) -> tuple[Board, Board]:
     """Create a single puzzle candidate."""
+
     puzzle = [[0] * 9 for _ in range(9)]
 
     if not fill_complete_grid(puzzle):
@@ -272,10 +276,7 @@ def make_candidate(
         if count_solutions(puzzle, limit=2) == 1:
             clue_count -= len(occupied)
         else:
-            for (row, col), value in zip(
-                occupied,
-                previous_values,
-            ):
+            for (row, col), value in zip(occupied, previous_values):
                 puzzle[row][col] = value
 
     return puzzle, solution
@@ -285,7 +286,7 @@ def generate_sudoku(
     level: str = 'medium',
     rotational_symmetry: bool = True,
     max_attempts: int = 50,
-    seed: Optional[int] = None,
+    seed: int | None = None,
 ) -> tuple[Board, Board, dict]:
     """
     Generate a Sudoku puzzle at the requested approximate difficulty level.
@@ -293,6 +294,7 @@ def generate_sudoku(
     Returns:
         puzzle, solution, statistics
     """
+
     if level not in TARGET_CLUES:
         allowed = ', '.join(TARGET_CLUES)
         raise ValueError(f'Nieznany poziom. Dostępne: {allowed}')
